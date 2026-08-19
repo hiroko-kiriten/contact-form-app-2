@@ -1,5 +1,6 @@
 <?php
 
+use App\Providers\FortifyServiceProvider;
 use App\Providers\AppServiceProvider;
 use App\Providers\AuthServiceProvider;
 use App\Providers\EventServiceProvider;
@@ -87,7 +88,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'ja',
 
     /*
     |--------------------------------------------------------------------------
@@ -172,7 +173,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         EventServiceProvider::class,
         RouteServiceProvider::class,
-         App\Providers\FortifyServiceProvider::class,
+        FortifyServiceProvider::class,
     ])->toArray(),
 
     /*
