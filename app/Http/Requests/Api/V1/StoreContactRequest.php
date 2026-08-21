@@ -2,24 +2,15 @@
 
 namespace App\Http\Requests\Api\V1;
 
-use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateContactRequest extends FormRequest
+class StoreContactRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     */
     public function authorize(): bool
     {
         return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, ValidationRule|array<mixed>|string>
-     */
     public function rules(): array
     {
         return [
@@ -44,16 +35,13 @@ class UpdateContactRequest extends FormRequest
             'last_name.required' => '名を入力してください',
             'gender.required' => '性別を選択してください',
             'email.required' => 'メールアドレスを入力してください',
-            'email.email' => 'メールアドレスはメール形式で入力してください',
+            'email.email' => 'メールアドレスの形式で入力してください',
             'tel.required' => '電話番号を入力してください',
             'tel.regex' => '電話番号はハイフンなしの10〜11桁で入力してください',
             'address.required' => '住所を入力してください',
             'category_id.required' => 'お問い合わせの種類を選択してください',
             'detail.required' => 'お問い合わせ内容を入力してください',
             'detail.max' => 'お問い合わせ内容は120文字以内で入力してください',
-            'gender.in' => '性別の値が不正です',
-            'category_id.exists' => '選択されたカテゴリーが存在しません',
-            'tag_ids.*.exists' => '選択されたタグが存在しません',
         ];
     }
 }
